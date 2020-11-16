@@ -12,6 +12,7 @@ class TodoController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->authorizeResource(Todo::class, 'todo');
     }
 
     // Todo Logic
@@ -21,7 +22,6 @@ class TodoController extends Controller
     }
 
     public function show(Todo $todo) {
-        $todo = auth()->user()->todos->find($todo);
         return view('todos.show', compact('todo'));
     }
 
@@ -30,7 +30,6 @@ class TodoController extends Controller
     }
 
     public function edit(Todo $todo) {
-        $this->authorize('update', $todo);
         return view('todos.edit', compact('todo'));
     }
 
@@ -45,19 +44,20 @@ class TodoController extends Controller
     }
 
     public function update(TodoCreateRequest $request, Todo $todo) {
-        // dd($request->all());
         $todo->update(['title' => $request->title, 'description' => $request->description]);
         $request->session()->flash('success_message', 'Todo Updated Successfully');
         return redirect(route('todo.index'));
     }
 
     public function complete(Request $request, Todo $todo) {
+        $this->authorize('complete', $todo);
         $todo->update(['completed' => true]);
         $request->session()->flash('success_message', 'Todo marked as Completed!');
         return redirect()->back();
     }
 
     public function incomplete(Request $request, Todo $todo) {
+        $this->authorize('incomplete', $todo);
         $todo->update(['completed'  => false]);
         $request->session()->flash('success_message', 'Todo marked as Incomplete');
         return redirect()->back();

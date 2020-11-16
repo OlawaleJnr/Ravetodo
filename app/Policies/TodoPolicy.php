@@ -19,7 +19,7 @@ class TodoPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return $user->id === auth()->user()->id;
     }
 
     /**
@@ -31,7 +31,7 @@ class TodoPolicy
      */
     public function view(User $user, Todo $todo)
     {
-        //
+        return $user->id === $todo->user_id ? Response::allow() : Response::deny('You do not have the access to view this todo indepth');
     }
 
     /**
@@ -42,7 +42,7 @@ class TodoPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->id === auth()->user()->id ? Response::allow() : Response::deny('You do not have the access to create this Todo');
     }
 
     /**
@@ -54,8 +54,7 @@ class TodoPolicy
      */
     public function update(User $user, Todo $todo)
     {
-        //
-        return $user->id === $todo->user_id ? Response::allow() : Response::deny('You do not own this Todo');
+        return $user->id === $todo->user_id ? Response::allow() : Response::deny('You do not have the access to edit/update this Todo');
     }
 
     /**
@@ -67,8 +66,31 @@ class TodoPolicy
      */
     public function delete(User $user, Todo $todo)
     {
-        //
-        return $user->id === $todo->user_id; 
+        return $user->id === $todo->user_id ? Response::allow() : Response::deny('You do not have the access to delete this Todo');
+    }
+
+    /**
+     * Determine whether the user can mark the model as complete.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Todo  $todo
+     * @return mixed
+     */
+    public function complete(User $user, Todo $todo)
+    {
+        return $user->id === $todo->user_id ? Response::allow() : Response::deny('You do not have the access to mark this todo as completed');
+    }
+
+    /**
+     * Determine whether the user can mark the model as incomplete.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Todo  $todo
+     * @return mixed
+     */
+    public function incomplete(User $user, Todo $todo)
+    {
+        return $user->id === $todo->user_id ? Response::allow() : Response::deny('You do not have the access to mark this todo as completed');
     }
 
     /**
