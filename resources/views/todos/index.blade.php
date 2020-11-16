@@ -28,21 +28,43 @@
                                                             <a class="text-primary" href="{{route('todo.edit', $todo->id)}}" role="button"><span class="action-box large delete-btn" title="Edit Task"><i class="icon"><i class="icon-pencil-alt"></i></i></span></a>
 
                                                             <!-- Delete Button -->
-                                                            <a class="text-danger" href="{{route('todo.destroy', $todo->id)}}" role="button" onclick="event.preventDefault(); document.getElementById('form-delete-{{$todo->id}}').submit()"><span class="action-box large delete-btn" title="Delete Task"><i class="icon"><i class="icon-trash"></i></i></span></a>
+                                                            <a class="text-danger" id="delete-todo" href="{{route('todo.destroy', $todo->id)}}"
+                                                            onclick="event.preventDefault(); deleteTodo(); 
+                                                                function deleteTodo(){
+                                                                    swal({
+                                                                        title: 'Are you sure?',
+                                                                        text: 'Once deleted, you will not be able to recover this Todo!',
+                                                                        icon: 'warning',
+                                                                        buttons: true,
+                                                                        dangerMode: true,
+                                                                    })
+                                                                    .then((willDeleteTodo) => {
+                                                                        if (willDeleteTodo) {
+                                                                            document.getElementById('form-delete-{{$todo->id}}').submit();
+                                                                            swal({
+                                                                                text: 'Your Todo has been deleted!',
+                                                                                icon: 'success',
+                                                                            })
+                                                                        } else {
+                                                                            swal('Your Todo is kept safe!');
+                                                                        }
+                                                                    })
+                                                                }
+                                                            " role="button"><span class="action-box large delete-btn" title="Delete Task"><i class="icon"><i class="icon-trash"></i></i></span></a>
                                                             <form style="display: none;" action="{{route('todo.destroy', $todo->id)}}" id="form-delete-{{$todo->id}}" method="post">
                                                                 @csrf
                                                                 @method('delete')
                                                             </form>
 
                                                             <!-- Complete Button -->
-                                                            <span onclick="event.preventDefault(); document.getElementById('form-complete-{{$todo->id}}').submit()" class="action-box large complete-btn text-success" title="Mark as Complete"><i class="icon"><i class="icon-check"></i></i></span>
+                                                            <span onclick="event.preventDefault(); document.getElementById('form-complete-{{$todo->id}}').submit()" class="action-box large text-success" title="Mark as Complete"><i class="icon"><i class="icon-check"></i></i></span>
                                                             <form style="display: none;" action="{{route('todo.complete', $todo->id)}}" id="form-complete-{{$todo->id}}" method="post">
                                                                 @csrf
                                                                 @method('put')
                                                             </form>
 
                                                             <!-- InComplete Button -->
-                                                            <span  onclick="event.preventDefault(); document.getElementById('form-incomplete-{{$todo->id}}').submit()" class="action-box large complete-btn text-danger" title="Mark as Incomplete"><i class="icon"><i class="icon-close"></i></i></span>
+                                                            <span  onclick="event.preventDefault(); document.getElementById('form-incomplete-{{$todo->id}}').submit()" class="action-box large text-danger" title="Mark as Incomplete"><i class="icon"><i class="icon-close"></i></i></span>
                                                             <form style="display: none;" action="{{route('todo.incomplete', $todo->id)}}" id="form-incomplete-{{$todo->id}}" method="post">
                                                                 @csrf
                                                                 @method('put')

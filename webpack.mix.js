@@ -13,3 +13,17 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+
+mix.styles([
+    'resources/css/responsive.css',
+    'resources/css/themify.css',
+    'resources/css/todo.css',
+    'resources/css/style.css',
+    'resources/css/sweetalert2.css'
+], './public/css/theme.css');
+
+mix.scripts([
+    'resources/js/sweetalert.min.js',
+], './public/js/libs.js');
+
+

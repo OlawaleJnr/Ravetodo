@@ -8,12 +8,9 @@
     <title>Todo</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/todo.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/themify.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/theme.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -48,10 +45,6 @@
                             <li class="nav-item dropdown">
 
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @if(Auth::user()->avatar)
-                                        <!-- Avatar -->
-                                        <img src="{{ asset('/storage/images/' . Auth::user()->avatar) }}" alt="avatar" class="img-fluid rounded-circle mr-2" width="40px" height="40px" style="height: 40px; width: 40px;">
-                                    @endif
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -80,5 +73,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/libs.js') }}" defer></script>
 </body>
 </html>

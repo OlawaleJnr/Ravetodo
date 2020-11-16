@@ -1,0 +1,9 @@
+/* External Font */
+@font-face{
+    src: url(../fonts/fira_sans/FiraSans-Regular.ttf);
+    font-family: FiraSans;
+}
+
+p, div{
+    font-family: FiraSans;
+}

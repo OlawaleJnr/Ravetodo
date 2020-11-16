@@ -21,6 +21,7 @@ class TodoController extends Controller
     }
 
     public function show(Todo $todo) {
+        $todo = auth()->user()->todos->find($todo);
         return view('todos.show', compact('todo'));
     }
 
@@ -29,7 +30,7 @@ class TodoController extends Controller
     }
 
     public function edit(Todo $todo) {
-        $todo = auth()->user()->todos->find($todo);
+        $this->authorize('update', $todo);
         return view('todos.edit', compact('todo'));
     }
 
