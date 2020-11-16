@@ -12,8 +12,12 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <h5 class="text-danger font-weight-bold">Description</h5>
+                        <h6 class="text-danger font-weight-bold">Description</h6>
                         <p>{{$todo->description}}</p>
+                        <br>
+                        <div class="float-right">Created {{ $todo->created_at->diffForHumans() }}</div>
+                        <br>
+                        <div class="float-right">Updated Last at {{ $todo->updated_at->diffForHumans() }}</div>
                     </div>
                 </div>
             </div>

@@ -25,7 +25,8 @@ class TodoCreateRequest extends FormRequest
     {
         return [
             //rules
-            'title' => 'required|max:255'
+            'title' => 'required|max:255',
+            'description' => 'required'
         ];
     }
 

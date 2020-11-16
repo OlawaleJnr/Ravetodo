@@ -17,11 +17,21 @@
                             @method('patch')
                             <div class="form-group">
                                 <label for="title">{{ __('Todo Name') }}</label>
-                                <input type="text" class="form-control" name="title" value="{{$todo->title}}">
+                                <input type="text" class="form-control  @error('title') is-invalid @enderror" name="title" value="{{$todo->title}}">
+                                @error('title')
+                                    <span class="invalid-feedback">
+                                        <strong> {{ $message }} </strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="title">{{ __('Description') }}</label>
-                                <textarea name="description" cols="30" rows="4" class="form-control">{{$todo->description}}</textarea>
+                                <textarea name="description" cols="30" rows="4" class="form-control @error('description') is-invalid @enderror">{{$todo->description}}</textarea>
+                                @error('description')
+                                    <span class="invalid-feedback">
+                                        <strong> {{ $message }} </strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group ml-md-2">
                                 <input type="submit" value="Update Todo" class="btn btn-block btn-primary">

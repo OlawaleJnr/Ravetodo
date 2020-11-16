@@ -25,7 +25,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">{{ __('Description') }}</label>
-                                <textarea name="description" cols="30" rows="4" class="form-control"></textarea>
+                                <textarea name="description" cols="30" rows="4" class="form-control @error('description') is-invalid @enderror"></textarea>
+                                @error('description')
+                                    <span class="invalid-feedback">
+                                        <strong> {{ $message }} </strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group ml-md-2">
                                 <input type="submit" value="Create New Todo" class="btn btn-block btn-primary">
