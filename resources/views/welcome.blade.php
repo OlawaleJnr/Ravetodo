@@ -3,76 +3,100 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
+        <title>Todo</title>
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-        </style>
+        <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/todo') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+    <body class="landing-page">
+        <!-- page-wrapper Start-->
+        <div class="page-wrapper landing-page">
+            <!-- Page Body Start            -->
+            <div class="landing-home">
+                <ul class="decoration">
+                    <li class="one"><img class="img-fluid" src="{{ asset('images/decore/1.png') }}" alt=""></li>
+                    <li class="two"><img class="img-fluid" src="{{ asset('images/decore/2.png') }}" alt=""></li>
+                    <li class="three"><img class="img-fluid" src="{{ asset('images/decore/3.png') }}" alt=""></li>
+                    <li class="four"><img class="img-fluid" src="{{ asset('images/decore/4.png') }}" alt=""></li>
+                    <li class="five"><img class="img-fluid" src="{{ asset('images/decore/1.png') }}" alt=""></li>
+                    <li class="six"><img class="img-fluid" src="{{ asset('images/decore/cloud.png') }}" alt=""></li>
+                    <li class="seven"><img class="img-fluid" src="{{ asset('images/decore/3.png') }}" alt=""></li>
+                </ul>
+                <div class="container-fluid">
+                    <div class="sticky-header">
+                        <header>
+                            <nav class="navbar navbar-b navbar-trans navbar-expand-xl fixed-top nav-padding" id="sidebar-menu">
+                                <a class="navbar-brand p-0" href="{{ url('/') }}">
+                                    RaveTodo
+                                </a>
+                                <button class="navbar-toggler navabr_btn-set custom_nav" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                                <div class="navbar-collapse justify-content-end collapse hidenav" id="navbarDefault">
+                                    <ul class="navbar-nav navbar_nav_modify" id="scroll-spy">
+                                        @if(Route::has('login'))
+                                            @auth
+                                                <li class="nav-item"><a class="nav-link" href="{{ url('/todo') }}">Home</a></li>
+                                            @else
+                                                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    DevOlawale Coders
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                                                @if (Route::has('register'))
+                                                    <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+                                                @endif
+                                            @endauth
+                                        @endif
+                                    </ul>
+                                </div>
+                            </nav>
+                        </header>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-6">
+                            <div class="content text-center">
+                                <div class="m-auto">
+                                    <h1 class="wow fadeIn">Rave Todo </h1>
+                                    <h2 class="txt-secondary wow fadeIn">Store your todos in one click</h2>
+                                    <p class="mt-3 wow fadeIn">Rave Todo was built using Laravel</p>
+                                    <div class="btn-grp mt-4">
+                                        <a class="btn btn-pill btn-primary btn-air-primary btn-lg mr-3 wow pulse" href="index-2.html" target="_blank">
+                                            <img src="{{ asset('images/landing/html.png') }}" alt="">HTML
+                                        </a>
+                                        <a class="btn btn-pill btn-success btn-air-success btn-lg wow pulse mr-3" href="http://laravel.pixelstrap.com/cuba/pages/landing" target="_blank">
+                                            <img src="{{ asset('images/landing/laravel2.png') }}" alt="">Laravel
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-6">
+                        </div>
+                    </div>
                 </div>
             </div>
+            <footer class="footer-bg">
+                <div class="container">
+                    <div class="landing-center ptb50">
+                        <div class="title">
+                            <h3>Rave Todo</h3>
+                        </div>
+                        <div class="footer-content">
+                        <h1>Star us on Github</h1>
+                        <p>If You like Our Application.</p>
+                        <a class="btn mrl5 btn-lg btn-dark default-view" target="_blank" href="index-2.html">star us via git</a>
+                        <a class="btn mrl5 btn-lg btn-secondary btn-md-res" target="_blank" href="https://1.envato.market/3GVzd">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
     </body>
+
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/wow/wow.min.js') }}"></script>
+    <script src="{{ asset('js/landing_sticky.js') }}"></script>
 </html>
