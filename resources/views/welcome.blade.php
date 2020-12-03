@@ -62,6 +62,7 @@
                                     <h1 class="wow fadeIn">Rave Todo </h1>
                                     <h2 class="txt-secondary wow fadeIn">Store your todos in one click</h2>
                                     <p class="mt-3 wow fadeIn">Rave Todo was built using Laravel</p>
+                                    <p class="mt-3 wow fadeIn">Proudly coded by Talabi Ayomide</p>
                                     <div class="btn-grp mt-4">
                                         <a class="btn btn-pill btn-primary btn-air-primary btn-lg mr-3 wow pulse" href="javascript:void(0)">
                                             <img src="{{ asset('images/landing/html.png') }}" alt="">HTML
