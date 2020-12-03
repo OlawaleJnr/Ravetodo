@@ -63,10 +63,10 @@
                                     <h2 class="txt-secondary wow fadeIn">Store your todos in one click</h2>
                                     <p class="mt-3 wow fadeIn">Rave Todo was built using Laravel</p>
                                     <div class="btn-grp mt-4">
-                                        <a class="btn btn-pill btn-primary btn-air-primary btn-lg mr-3 wow pulse" href="index-2.html" target="_blank">
+                                        <a class="btn btn-pill btn-primary btn-air-primary btn-lg mr-3 wow pulse" href="javascript:void(0)">
                                             <img src="{{ asset('images/landing/html.png') }}" alt="">HTML
                                         </a>
-                                        <a class="btn btn-pill btn-success btn-air-success btn-lg wow pulse mr-3" href="http://laravel.pixelstrap.com/cuba/pages/landing" target="_blank">
+                                        <a class="btn btn-pill btn-success btn-air-success btn-lg wow pulse mr-3" href="javascript:void(0)">
                                             <img src="{{ asset('images/landing/laravel2.png') }}" alt="">Laravel
                                         </a>
                                     </div>
@@ -87,8 +87,7 @@
                         <div class="footer-content">
                         <h1>Star us on Github</h1>
                         <p>If You like Our Application.</p>
-                        <a class="btn mrl5 btn-lg btn-dark default-view" target="_blank" href="index-2.html">star us via git</a>
-                        <a class="btn mrl5 btn-lg btn-secondary btn-md-res" target="_blank" href="https://1.envato.market/3GVzd">Buy Now</a>
+                        <a class="btn mrl5 btn-lg btn-dark default-view" target="_blank" href="index-2.html">Star us on Github</a>
                         </div>
                     </div>
                 </div>
