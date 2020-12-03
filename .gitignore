@@ -11,6 +11,3 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /public/fonts
-/public/css/responsive.css
-/public/css/themify.css
-/public/css/todo.css
