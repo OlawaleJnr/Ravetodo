@@ -55,20 +55,22 @@
                                                                 @csrf
                                                                 @method('delete')
                                                             </form>
-
-                                                            <!-- Complete Button -->
-                                                            <span onclick="event.preventDefault(); document.getElementById('form-complete-{{$todo->id}}').submit()" class="action-box large text-success" title="Mark as Complete"><i class="icon"><i class="icon-check"></i></i></span>
-                                                            <form style="display: none;" action="{{route('todo.complete', $todo->id)}}" id="form-complete-{{$todo->id}}" method="post">
-                                                                @csrf
-                                                                @method('put')
-                                                            </form>
-
-                                                            <!-- InComplete Button -->
-                                                            <span  onclick="event.preventDefault(); document.getElementById('form-incomplete-{{$todo->id}}').submit()" class="action-box large text-danger" title="Mark as Incomplete"><i class="icon"><i class="icon-close"></i></i></span>
-                                                            <form style="display: none;" action="{{route('todo.incomplete', $todo->id)}}" id="form-incomplete-{{$todo->id}}" method="post">
-                                                                @csrf
-                                                                @method('put')
-                                                            </form>
+															
+															@if($todo->completed == 0)
+																<!-- Complete Button -->
+																<span onclick="event.preventDefault(); document.getElementById('form-complete-{{$todo->id}}').submit()" class="action-box large text-success" title="Mark as Complete"><i class="icon"><i class="icon-check"></i></i></span>
+																<form style="display: none;" action="{{route('todo.complete', $todo->id)}}" id="form-complete-{{$todo->id}}" method="post">
+																	@csrf
+																	@method('put')
+																</form>
+															@else
+																<!-- InComplete Button -->
+																<span  onclick="event.preventDefault(); document.getElementById('form-incomplete-{{$todo->id}}').submit()" class="action-box large text-danger" title="Mark as Incomplete"><i class="icon"><i class="icon-close"></i></i></span>
+																<form style="display: none;" action="{{route('todo.incomplete', $todo->id)}}" id="form-incomplete-{{$todo->id}}" method="post">
+																	@csrf
+																	@method('put')
+																</form>
+															@endif
                                                         </span>
                                                     </div>
                                                 </li>
